@@ -2,27 +2,6 @@
 
 The **Rwanda Supply Chain Network (RSCN)** is a cloud-based, multi-tenant B2B infrastructure platform designed to unify Rwanda's fragmented supply chain ecosystem. Rather than replacing existing internal ERPs or point-of-sale software, this platform operates as a shared national digital fabric. It synchronizes data and optimizes physical goods movement across producers, manufacturers, logistics providers, warehouses, retailers, financial institutions, and regulatory bodies.
 
----
-
-## Architectural Vision
-
-The backend architecture is built to solve severe fragmentation by introducing real-time coordination, automated matchmaking, and verified transactional visibility.
-
-   [ PRODUCERS ]      [ MANUFACTURERS ]      [ WAREHOUSES ]     [ TRANSPORTERS ]
-         \                    |                    |                   /
-          \                   |                    |                  /
-    +-----------------------------------------------------------------------+
-    |                          RSCN BACKEND API CORE                        |
-    +-----------------------------------------------------------------------+
-    |  - Identity & KYC       - Smart Marketplace   - Order Lifecycle Engine|
-    |  - Inventory & Track    - Geospatial WMS      - Freight/TMS Dispatch  |
-    +-----------------------------------------------------------------------+
-         /                    |                    |                  \
-        /                     |                    |                   \
-  [ RETAILERS ]       [ FINTECH / BANKS ]   [ GOVT INSIGHTS ]    [ AI FORECAST ]
-
----
-
 ##  Core Tech Stack (Target Architecture)
 
 * **Language/Runtime:** JAVA + SpringBoot
@@ -30,8 +9,6 @@ The backend architecture is built to solve severe fragmentation by introducing r
 * **Geospatial Extensions:** PostGIS
 * **Caching & Message Broker:** Websocket (For real-time WebSocket session tracking, background job queuing, and geospatial caching)
 * **Authentication:** OAuth2 / JWT with fine-grained Role-Based Access Control (RBAC)
-
----
 
 ##  System Modules & Deep-Dive Logic
 
@@ -65,9 +42,7 @@ $$\text{Quotation} \longrightarrow \text{Order} \longrightarrow \text{Invoice} \
 
 * **Alternative Credit Scoring Ingestion:** Logs anonymous, behavioral supply chain telemetry data points (e.g., shipment reliability, ordering cadence, payment timelines) creating high-fidelity risk metrics accessible to partner banks to help securely underwrite small business loans.
 
----
-
-## 🚀 Getting Started & Setup
+##  Getting Started & Setup
 
 ### Prerequisites
 * Docker & Docker Compose
