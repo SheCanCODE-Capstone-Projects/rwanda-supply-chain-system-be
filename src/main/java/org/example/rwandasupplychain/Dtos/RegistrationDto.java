@@ -1,22 +1,16 @@
-package org.example.rwandasupplychain.Entities;
+package org.example.rwandasupplychain.Dtos;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.rwandasupplychain.Enums.BusinessType;
 
 import java.util.Date;
-import java.util.UUID;
 
-@Entity
-@Table(name = "user_profile")
 @Getter
 @Setter
-public class Users {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(nullable = false)
-    private UUID id;
+public class RegistrationDto {
 
     private String fullName;
 
@@ -30,6 +24,4 @@ public class Users {
     private BusinessType businessType;
 
     private Date birthDate;
-
-
 }
