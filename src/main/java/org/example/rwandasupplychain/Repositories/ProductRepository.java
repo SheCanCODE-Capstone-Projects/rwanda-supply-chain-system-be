@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface ProductRepository extends JpaRepository<Product, UUID> {
     List<Product> findByOrgId(UUID orgId);
     boolean existsByNameIgnoreCaseAndOrgId(String name, UUID orgId);
+    List<Product> findByCategoryIgnoreCaseAndActiveTrue(String category);
 }
