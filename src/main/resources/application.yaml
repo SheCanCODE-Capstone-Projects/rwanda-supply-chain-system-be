@@ -4,9 +4,9 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${SPRING_DATABASE_URL}
-    username: ${SPRING_DATABASE_USERNAME}
-    password: ${SPRING_DATABASE_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/RSCN_DB
+    username: postgres
+    password: 123
 
   jpa:
     properties:
@@ -15,6 +15,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create
+
   security:
     oauth2:
       client:
@@ -26,6 +27,20 @@ spring:
               - email
               - profile
 
+# ✅ Add this JWT configuration:
+app:
+  jwt:
+    secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970   # 256-bit key
+    expiration-ms: 86400000   # 24 hours
+
+    tenant:
+      default-id: tenant1
 
 server:
   port: 8082
+
+  springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
