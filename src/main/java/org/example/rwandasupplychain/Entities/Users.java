@@ -31,5 +31,10 @@ public class Users {
 
     private Date birthDate;
 
+    private String district;
+
+    private Double latitude;
+
+    private Double longitude;
 
 }
