@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -31,6 +32,9 @@ public class Batch {
 
     @Column(nullable = false)
     private Integer quantity;
+
+    @Column(name = "unit_cost", nullable = false, precision = 12, scale = 2)
+    private BigDecimal unitCost = BigDecimal.ZERO;
 
     @Column(name = "manufacturing_date", nullable = false)
     private LocalDate manufacturingDate;

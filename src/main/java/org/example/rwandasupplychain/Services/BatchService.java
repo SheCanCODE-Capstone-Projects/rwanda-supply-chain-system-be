@@ -40,6 +40,7 @@ public class BatchService {
         batch.setQuantity(request.quantity());
         batch.setManufacturingDate(request.manufacturingDate());
         batch.setExpiryDate(request.expiryDate());
+        batch.setUnitCost(request.unitCost() != null ? request.unitCost() : java.math.BigDecimal.ZERO);
         batch.setStatus(BatchStatus.ACTIVE);
         Batch saved = batchRepository.save(batch);
 
@@ -72,6 +73,9 @@ public class BatchService {
         }
         if (request.status() != null) {
             batch.setStatus(request.status());
+        }
+        if (request.unitCost() != null) {
+            batch.setUnitCost(request.unitCost());
         }
         return toResponse(batchRepository.save(batch));
     }
@@ -117,6 +121,7 @@ public class BatchService {
                 batch.getManufacturingDate(),
                 batch.getExpiryDate(),
                 batch.getStatus(),
+                batch.getUnitCost(),
                 batch.getCreatedAt()
         );
     }

@@ -23,4 +23,8 @@ public interface BatchRepository extends JpaRepository<Batch, UUID> {
 
     @Query("SELECT COALESCE(SUM(b.quantity), 0) FROM Batch b WHERE b.sku.id = :skuId AND b.status = 'ACTIVE'")
     Integer sumActiveQuantityBySkuId(@Param("skuId") UUID skuId);
+
+    @Query("SELECT b FROM Batch b WHERE b.sku.id = :skuId AND b.status = 'ACTIVE' AND b.quantity > 0 " +
+            "ORDER BY b.manufacturingDate ASC, b.createdAt ASC")
+    List<Batch> findFifoLayersBySkuId(@Param("skuId") UUID skuId);
 }
