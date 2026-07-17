@@ -1,6 +1,6 @@
 package org.example.rwandasupplychain.DTOs;
 
-import org.example.rwandasupplychain.Entities.NotificationType;
+import org.example.rwandasupplychain.Enums.NotificationType;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

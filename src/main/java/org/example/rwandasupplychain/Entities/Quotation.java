@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.rwandasupplychain.Enums.QuotationStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -5,7 +5,7 @@ import org.example.rwandasupplychain.Entities.Product;
 import org.example.rwandasupplychain.Entities.RFQ;
 import org.example.rwandasupplychain.Entities.SKU;
 import org.example.rwandasupplychain.Entities.Users;
-import org.example.rwandasupplychain.Entities.RfqStatus;
+import org.example.rwandasupplychain.Enums.RfqStatus;
 import org.example.rwandasupplychain.Repositories.ProductRepository;
 import org.example.rwandasupplychain.Repositories.RFQRepository;
 import org.example.rwandasupplychain.Repositories.SKURepository;

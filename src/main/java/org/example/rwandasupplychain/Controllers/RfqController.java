@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import org.example.rwandasupplychain.DTOs.RfqDtos.RfqRequest;
 import org.example.rwandasupplychain.DTOs.RfqDtos.RfqResponse;
 import org.example.rwandasupplychain.DTOs.SupplierMatchDtos.SupplierMatch;
-import org.example.rwandasupplychain.Entities.RfqStatus;
+import org.example.rwandasupplychain.Enums.RfqStatus;
 import org.example.rwandasupplychain.Services.RfqService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

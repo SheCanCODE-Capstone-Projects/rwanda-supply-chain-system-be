@@ -1,7 +1,7 @@
 package org.example.rwandasupplychain.Repositories;
 
 import org.example.rwandasupplychain.Entities.RFQ;
-import org.example.rwandasupplychain.Entities.RfqStatus;
+import org.example.rwandasupplychain.Enums.RfqStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

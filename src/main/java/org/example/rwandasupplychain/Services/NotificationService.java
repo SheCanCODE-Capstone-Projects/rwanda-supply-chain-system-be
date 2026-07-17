@@ -2,7 +2,7 @@ package org.example.rwandasupplychain.Services;
 
 import org.example.rwandasupplychain.DTOs.NotificationDtos.NotificationResponse;
 import org.example.rwandasupplychain.Entities.Notification;
-import org.example.rwandasupplychain.Entities.NotificationType;
+import org.example.rwandasupplychain.Enums.NotificationType;
 import org.example.rwandasupplychain.Exceptions.ResourceNotFoundException;
 import org.example.rwandasupplychain.Repositories.NotificationRepository;
 import org.springframework.messaging.simp.SimpMessagingTemplate;

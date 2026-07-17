@@ -1,4 +1,4 @@
-package org.example.rwandasupplychain.Entities;
+package org.example.rwandasupplychain.Enums;
 
 public enum NegotiationRole {
     BUYER,
