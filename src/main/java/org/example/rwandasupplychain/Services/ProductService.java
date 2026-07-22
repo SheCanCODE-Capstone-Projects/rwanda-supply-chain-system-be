@@ -1,12 +1,12 @@
 package org.example.rwandasupplychain.Services;
 
-import org.example.rwandasupplychain.DTOs.ProductDtos.ProductRequest;
-import org.example.rwandasupplychain.DTOs.ProductDtos.ProductResponse;
-import org.example.rwandasupplychain.Entities.Product;
+import org.example.rwandasupplychain.DTOs.FarmerDtos.ProductDtos.ProductRequest;
+import org.example.rwandasupplychain.DTOs.FarmerDtos.ProductDtos.ProductResponse;
+import org.example.rwandasupplychain.Entities.FarmerEntities.Product;
 import org.example.rwandasupplychain.Exceptions.DuplicateResourceException;
 import org.example.rwandasupplychain.Exceptions.ForbiddenOperationException;
 import org.example.rwandasupplychain.Exceptions.ResourceNotFoundException;
-import org.example.rwandasupplychain.Repositories.ProductRepository;
+import org.example.rwandasupplychain.Repositories.FarmerRepositories.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,7 +53,7 @@ public class ProductService {
         productRepository.delete(findEntity(id));
     }
 
-    protected Product findEntity(UUID id) {
+    public Product findEntity(UUID id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found: " + id));
     }
