@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+=======
 # Rwanda Supply Chain Network (RSCN) — Backend Core
 
 The **Rwanda Supply Chain Network (RSCN)** is a cloud-based, multi-tenant B2B infrastructure platform designed to unify Rwanda's fragmented supply chain ecosystem. Rather than replacing existing internal ERPs or point-of-sale software, this platform operates as a shared national digital fabric. It synchronizes data and optimizes physical goods movement across producers, manufacturers, logistics providers, warehouses, retailers, financial institutions, and regulatory bodies.
@@ -54,3 +72,4 @@ $$\text{Quotation} \longrightarrow \text{Order} \longrightarrow \text{Invoice} \
 2. Initialize Environment Variables:
 3. run the docker container
 4. start the application
+>>>>>>> 29e91169fd6bd2a79048cd4abce53848867aa4f3
