@@ -1,11 +1,12 @@
 package org.example.rwandasupplychain.Services;
 
-import org.example.rwandasupplychain.DTOs.ProductDtos.ProductRequest;
-import org.example.rwandasupplychain.DTOs.ProductDtos.ProductResponse;
-import org.example.rwandasupplychain.Entities.Product;
+import org.example.rwandasupplychain.DTOs.FarmerDtos.ProductDtos.ProductRequest;
+import org.example.rwandasupplychain.DTOs.FarmerDtos.ProductDtos.ProductResponse;
+import org.example.rwandasupplychain.Entities.FarmerEntities.Product;
 import org.example.rwandasupplychain.Exceptions.DuplicateResourceException;
+import org.example.rwandasupplychain.Exceptions.ForbiddenOperationException;
 import org.example.rwandasupplychain.Exceptions.ResourceNotFoundException;
-import org.example.rwandasupplychain.Repositories.ProductRepository;
+import org.example.rwandasupplychain.Repositories.FarmerRepositories.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -52,9 +53,50 @@ public class ProductService {
         productRepository.delete(findEntity(id));
     }
 
-    protected Product findEntity(UUID id) {
+    public Product findEntity(UUID id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found: " + id));
+    }
+
+
+
+    public ProductResponse createForFarmer(UUID farmerId, ProductRequest request) {
+        if (productRepository.existsByNameIgnoreCaseAndOrgId(request.name(), farmerId)) {
+            throw new DuplicateResourceException("A product named '" + request.name() + "' already exists for this organization");
+        }
+        Product product = new Product();
+        applyRequest(product, request);
+        product.setOrgId(farmerId);
+        return toResponse(productRepository.save(product));
+    }
+
+    @Transactional(readOnly = true)
+    public List<ProductResponse> getAllForFarmer(UUID farmerId) {
+        return productRepository.findByOrgId(farmerId).stream().map(this::toResponse).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public ProductResponse getByIdForFarmer(UUID farmerId, UUID id) {
+        return toResponse(findOwnedEntity(farmerId, id));
+    }
+
+    public ProductResponse updateForFarmer(UUID farmerId, UUID id, ProductRequest request) {
+        Product product = findOwnedEntity(farmerId, id);
+        applyRequest(product, request);
+        product.setOrgId(farmerId);
+        return toResponse(productRepository.save(product));
+    }
+
+    public void deleteForFarmer(UUID farmerId, UUID id) {
+        productRepository.delete(findOwnedEntity(farmerId, id));
+    }
+
+    private Product findOwnedEntity(UUID farmerId, UUID id) {
+        Product product = findEntity(id);
+        if (!product.getOrgId().equals(farmerId)) {
+            throw new ForbiddenOperationException("You do not have permission to access this product");
+        }
+        return product;
     }
 
     private void applyRequest(Product product, ProductRequest request) {
@@ -64,6 +106,10 @@ public class ProductService {
         product.setUnit(request.unit());
         product.setDescription(request.description());
         product.setProducerType(request.producerType());
+        product.setPrice(request.price());
+        product.setQuantity(request.quantity());
+        product.setBatch(request.batch());
+        product.setStatus(request.status());
     }
 
     private ProductResponse toResponse(Product product) {
@@ -76,6 +122,10 @@ public class ProductService {
                 product.getDescription(),
                 product.getProducerType(),
                 product.isActive(),
+                product.getPrice(),
+                product.getQuantity(),
+                product.getBatch(),
+                product.getStatus(),
                 product.getCreatedAt(),
                 product.getUpdatedAt()
         );
