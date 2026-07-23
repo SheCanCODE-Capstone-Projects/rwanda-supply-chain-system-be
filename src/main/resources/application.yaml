@@ -12,9 +12,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+
   security:
     oauth2:
       client:
@@ -26,6 +28,26 @@ spring:
               - email
               - profile
 
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+app:
+  upload:
+    dir: uploads/certifications
+
+  alerts:
+    recipient-emails: ${ALERT_RECIPIENT_EMAILS:}
+    expiry-days-ahead: ${ALERT_EXPIRY_DAYS_AHEAD:14}
+    low-stock-cron: ${ALERT_LOW_STOCK_CRON:0 0 7 * * *}
+    expiry-cron: ${ALERT_EXPIRY_CRON:0 30 7 * * *}
+
+  brevo:
+    base-url: https://api.brevo.com/v3/smtp/email
+    api-key: ${BREVO_API:}
+    sender-email: ${BREVO_MAIL:no-reply@rwandasupplychain.com}
+    sender-name: ${BREVO_SENDER_NAME:Rwanda Supply Chain}
 
 server:
   port: 8082

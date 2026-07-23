@@ -1,4 +1,4 @@
-package org.example.rwandasupplychain.Entities;
+package org.example.rwandasupplychain.Entities.InvetoryManagementEntities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
