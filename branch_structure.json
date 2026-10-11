@@ -1,0 +1,24 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "1-project-setup",
+    "2-core-multi-tenant-identity-organization-rbacarchitecture",
+    "3-product-inventory-management",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "1-project-setup": "main",
+    "2-core-multi-tenant-identity-organization-rbacarchitecture": "main",
+    "3-product-inventory-management": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "1-project-setup",
+    "2-core-multi-tenant-identity-organization-rbacarchitecture",
+    "3-product-inventory-management",
+    "origin"
+  ]
+}
