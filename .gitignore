@@ -14,7 +14,6 @@ dist-ssr
 *.local
 
 # Editor directories and files
-.vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
@@ -56,10 +55,9 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-.vscode/
 
-.env
 >>>>>>> 29e91169fd6bd2a79048cd4abce53848867aa4f3
 branch_structure.json
 temp_auto_push.bat
 temp_interactive_push.bat
+config.bat
